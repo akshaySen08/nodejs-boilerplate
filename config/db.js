@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const connectDb = async() => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI)
+        const conn = await mongoose.connect(process.env.MONGO_URI + "/boilerplate")
 
         console.log(`Mongodb is connected : ${conn.connection.host}`.cyan.underline);
     } catch (error) {

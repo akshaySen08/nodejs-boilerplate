@@ -26,7 +26,8 @@ const loginUser = asyncHandler(async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
+            message: "User logged in successfully"
         })
     } else {
         res.status(400)
@@ -75,13 +76,15 @@ const registerUser = asyncHandler(async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
+            message: "User registered successfully"
         })
     } else {
         res.status(400);
 
         throw new Error("Invalid user data")
     }
+
 })
 
 

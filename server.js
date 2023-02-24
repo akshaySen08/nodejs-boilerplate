@@ -1,10 +1,19 @@
+const cors = require('cors');
 const express = require('express');
+
 const { errorHandler } = require('./middleware/errorMiddleware');
 const dotenv = require('dotenv').config()
 const colors = require('colors');
 const connectDb = require('./config/db');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
+
+var corsOptions = {
+    origin: '*',
+}
 const app = express()
+app.use(cors(corsOptions))
+
+
 connectDb()
 
 /* For getting body into the request */
